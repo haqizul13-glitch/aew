@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuqthah Learning — Pembayaran</title>
+  <meta name="description" content="Website bimbel untuk verifikasi bisnis Midtrans: produk/jasa, checkout, pembayaran internal, S&K, kebijakan pengembalian, dan kontak." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="Beranda">
+      <span class="brand-mark">AA</span>
+      <span class="brand-text">
+        <strong>Nuqthah Learning</strong>
+        <small>Bimbel Muqarrar • E-Learning</small>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-controls="mobileNav" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="courses.html">Katalog Maddah</a>
+      <a href="private-class.html">Kelas Privat</a>
+      <a href="contact.html">Kontak</a>
+      <a class="nav-cart" href="cart.html" aria-label="Keranjang">
+        Keranjang <span id="cartCount" class="pill">0</span>
+      </a>
+    </nav>
+  </div>
+  <div class="topline">
+    <div class="container topline-inner">
+      <span class="badge small">BIMBEL TERMIN 2: COMING SOON • MARET 2026</span>
+      <span class="muted small">Belajar fleksibel • video 24/7 • quiz digital • grup diskusi</span>
+    </div>
+  </div>
+
+  <div id="mobileNav" class="mobile-nav" hidden>
+    <div class="mobile-nav-card">
+      <div class="mobile-nav-head">
+        <strong>Menu</strong>
+        <button class="mobile-nav-close" type="button" aria-label="Tutup menu">✕</button>
+      </div>
+      <a href="index.html">Beranda</a>
+      <a href="courses.html">Katalog Maddah</a>
+      <a href="private-class.html">Kelas Privat</a>
+      <a href="contact.html">Kontak</a>
+      <a class="mobile-cart" href="cart.html">Keranjang <span id="cartCountMobile" class="pill">0</span></a>
+      <div class="hr"></div>
+      <p class="muted small">Transaksi dalam <strong>IDR</strong> • Pembayaran tanpa redirect.</p>
+    </div>
+  </div>
+
+</header>
+
+<main class="main">
+<section class="container">
+  <h1 class="section-title" style="font-size:26px; margin-top:0">Pembayaran</h1>
+  <p class="muted">
+    Halaman pembayaran berada di website yang sama (tanpa mengarahkan ke situs lain).
+    Semua nilai transaksi menggunakan <strong>IDR</strong>.
+  </p>
+
+  <div id="payHolder" class="row" style="align-items:start">
+    <div class="card" style="padding:18px">
+      <h2 class="section-title" style="margin-top:0">Detail Order</h2>
+      <div class="grid" style="gap:10px">
+        <div class="kpi"><strong>Order ID</strong><span id="orderId">-</span></div>
+        <div class="kpi"><strong>Total</strong><span id="orderTotal">-</span></div>
+        <div class="kpi"><strong>Mata uang</strong><span id="orderCurrency">IDR</span></div>
+      </div>
+      <div class="hr"></div>
+
+      <div class="card" style="padding:0; overflow:hidden; background:transparent; box-shadow:none; border:1px solid var(--border)">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="payTbody"></tbody>
+        </table>
+      </div>
+
+      <p class="muted small">
+        Jika membutuhkan bantuan, hubungi <a href="contact.html">Kontak</a>.
+      </p>
+    </div>
+
+    <div class="card" style="padding:18px">
+      <h2 class="section-title" style="margin-top:0">Pilih Metode Pembayaran</h2>
+      <form id="payForm" class="form">
+        <div class="notice">
+          <strong>Catatan verifikasi:</strong> tombol "Bayar" akan memproses pembayaran simulasi di halaman ini (tanpa redirect).
+        </div>
+
+        <label class="card" style="padding:12px; display:flex; gap:10px; align-items:center">
+          <input type="radio" name="method" value="VA_BCA" checked data-label="Virtual Account (BCA)">
+          <div>
+            <strong>Virtual Account (BCA)</strong><br>
+            <span class="muted small">Contoh pembayaran via VA</span>
+          </div>
+        </label>
+
+        <label class="card" style="padding:12px; display:flex; gap:10px; align-items:center">
+          <input type="radio" name="method" value="QRIS" data-label="QRIS">
+          <div>
+            <strong>QRIS</strong><br>
+            <span class="muted small">Contoh pembayaran QR</span>
+          </div>
+        </label>
+
+        <label class="card" style="padding:12px; display:flex; gap:10px; align-items:center">
+          <input type="radio" name="method" value="EWALLET" data-label="E-Wallet">
+          <div>
+            <strong>E-Wallet</strong><br>
+            <span class="muted small">Contoh pembayaran e-wallet</span>
+          </div>
+        </label>
+
+        <button class="btn btn-primary" type="submit">Bayar Sekarang</button>
+        <a class="btn btn-secondary" href="checkout.html">Kembali</a>
+
+        <p class="muted small">
+          Dengan membayar, Anda menyetujui <a href="terms.html">Syarat & Ketentuan</a> dan <a href="refund.html">Kebijakan Pengembalian</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Konfirmasi pembayaran">
+  <div class="modal-card">
+    <h3 class="modal-title">Konfirmasi</h3>
+    <div id="modalBody"></div>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-title">Nuqthah Learning</div>
+      <p class="muted">Bimbel muqarrar berbasis e-learning untuk persiapan ujian termin.</p>
+      <p class="muted"><strong>Lokasi:</strong> Online (E-Learning • Akses dari mana saja)</p>
+      <p class="muted"><strong>Jam operasional:</strong> Setiap hari, 09.00–21.00 WIB</p>
+    </div>
+    <div>
+      <div class="footer-title">Kontak</div>
+      <ul class="footer-list">
+        <li><strong>Email:</strong> <a href="mailto:support@nuqthahlearning.id">support@nuqthahlearning.id</a></li>
+        <li><strong>Telepon:</strong> <a href="tel:+62215550123">+62 21 555 0123</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">+62 812 3456 7890</a></li>
+      </ul>
+      <div class="actions" style="margin-top:12px">
+        <a class="btn btn-primary" href="contact.html">Chat Admin</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">Verifikasi Midtrans</div>
+      <p class="muted">
+        Website ini menampilkan katalog layanan, harga dalam Rupiah (IDR), checkout & pembayaran di domain yang sama,
+        serta memuat kebijakan dan kontak bisnis.
+      </p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span class="muted">© 2026 Nuqthah Learning. All rights reserved.</span>
+    <span class="muted">Mata uang transaksi: <strong>IDR</strong></span>
+  </div>
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/payment.js"></script>
+</body>
+</html>
